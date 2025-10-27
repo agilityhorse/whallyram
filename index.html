@@ -3,8 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Whally Ram</title>
+    <meta name="description" content="cop" />
+    <title>Whally Ram - Play and Support Kids</title>
 
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NRB77J11C1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-NRB77J11C1"); // Twój Measurement ID
+    </script>
     <link
       href="https://fonts.googleapis.com/css2?family=Red+Rose:wght@400;700&display=swap"
       rel="stylesheet"
@@ -79,31 +93,39 @@
     </div>
 
     <script>
-      // Licznik buraków
-      async function updateBeetCounter() {
-        try {
-          const response = await fetch(
-            "https://us-central1-dots-collected.cloudfunctions.net/countVegetables"
-          );
-          const data = await response.json();
+            // Licznik buraków
+            async function updateBeetCounter() {
+              try {
+                const response = await fetch(
+                  "https://us-central1-dots-collected.cloudfunctions.net/countVegetables"
+                );
+                const data = await response.json();
 
-          const count = data.total ?? 0;
-          const formatted = count.toString().padStart(4, "0");
-          document.getElementById("beetCount").textContent = formatted;
-        } catch (error) {
-          console.error("Błąd pobierania licznika buraków:", error);
-        }
-      }
+                const count = data.total ?? 0;
+                const formatted = count.toString().padStart(4, "0");
+                document.getElementById("beetCount").textContent = formatted;
+              } catch (error) {
+                console.error("Błąd pobierania licznika buraków:", error);
+              }
+            }
 
-      updateBeetCounter();
-      setInterval(updateBeetCounter, 10000);
+            updateBeetCounter();
+            setInterval(updateBeetCounter, 10000);
 
-      // Funkcja startu gry
-      function startGame() {
+            // Funkcja startu gry
+            function startGame() {
         const game = document.getElementById("gameContainer");
         game.style.display = "block";
         game.scrollIntoView({ behavior: "smooth" });
+
+        // Śledzenie kliknięcia w GA
+        gtag('event', 'start_game_click', {
+          event_category: 'engagement',
+          event_label: 'Start Game Button'
+        });
       }
+
+            }
     </script>
   </body>
 </html>
