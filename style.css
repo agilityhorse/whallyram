@@ -132,3 +132,21 @@ body {
 .counter-total {
   color: #ffffff; /* biały */
 }
+
+/* Kontener gry - responsywny iframe 1:2 */
+.game-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 200%; /* wysokość = 2 × szerokość */
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.game-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

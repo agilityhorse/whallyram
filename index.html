@@ -10,25 +10,19 @@
       rel="stylesheet"
     />
 
-    <style>
-      @font-face {
-        font-family: "Upheaval TT (BRK)";
-        src: url("./upheavtt.ttf") format("truetype");
-        font-weight: normal;
-        font-style: normal;
-      }
-    </style>
-
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <div class="container">
+      <!-- Licznik buraków -->
       <div class="counter">
         <img src="images/beet-icon.png" alt="burak" class="counter-icon" />
         <span id="beetCount">0000</span
         ><span class="counter-total"> / 5000</span>
       </div>
+
+      <!-- Sekcje info -->
       <div class="section">
         <img src="images/whally-ram-logo.png" alt="Whally Ram" class="icon" />
         <div class="text-block">
@@ -62,8 +56,18 @@
         </div>
       </div>
 
+      <!-- Przycisk START GAME -->
       <div class="start-btn-container">
-        <button class="start-btn"></button>
+        <button class="start-btn" onclick="startGame()"></button>
+      </div>
+
+      <!-- Kontener iframe gry (ukryty do startu) -->
+      <div id="gameContainer" class="game-wrapper" style="display: none">
+        <iframe
+          src="https://itch.io/embed-upload/15343637?color=333333"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
       </div>
 
       <footer class="footer">
@@ -73,7 +77,9 @@
         >. 2025 ©
       </footer>
     </div>
+
     <script>
+      // Licznik buraków
       async function updateBeetCounter() {
         try {
           const response = await fetch(
@@ -82,18 +88,22 @@
           const data = await response.json();
 
           const count = data.total ?? 0;
-          const formatted = count.toString().padStart(4, "0"); // np. 25 → 0025
+          const formatted = count.toString().padStart(4, "0");
           document.getElementById("beetCount").textContent = formatted;
         } catch (error) {
           console.error("Błąd pobierania licznika buraków:", error);
         }
       }
 
-      // pobierz przy starcie
       updateBeetCounter();
-
-      // opcjonalnie: odświeżaj co 10 sekund
       setInterval(updateBeetCounter, 10000);
+
+      // Funkcja startu gry
+      function startGame() {
+        const game = document.getElementById("gameContainer");
+        game.style.display = "block";
+        game.scrollIntoView({ behavior: "smooth" });
+      }
     </script>
   </body>
 </html>
