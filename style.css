@@ -1,0 +1,134 @@
+/* Globalne style */
+body {
+  background-color: #1a120a;
+  color: #e6e6e6;
+  font-family: "Red Rose", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* pełna wysokość ekranu */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* wyśrodkowanie pionowe */
+}
+
+.container {
+  width: 320px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Sekcje */
+.section {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.icon {
+  width: 82px;
+  height: 82px;
+  border-radius: 16px;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.text-block {
+  width: 178px;
+}
+
+.title {
+  font-family: "Upheavtt", sans-serif;
+  font-size: 16px;
+  color: #e6e65c;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+  letter-spacing: 2px; /* np. 1px odstępu między literami */
+}
+
+.description {
+  font-size: 10px;
+  color: #e6e6e6;
+  text-align: justify;
+  line-height: 1.02;
+  margin: 0;
+}
+
+/* Przycisk START GAME */
+.start-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+  margin-bottom: 32px;
+}
+
+.start-btn {
+  width: 162px;
+  height: 82px;
+  background-image: url("./images/start-btn.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+}
+
+.start-btn:hover {
+  background-image: url("./images/start-btn-hover.png");
+}
+
+/* Ikony social media */
+.socials {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.socials img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Stopka tekstowa */
+.footer {
+  text-align: center;
+  font-size: 10px;
+  color: #e6e6e6;
+  font-family: "Red Rose", sans-serif;
+  margin-bottom: 20px;
+}
+
+.footer-link {
+  color: #e6e65c;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.footer-link:hover {
+  opacity: 0.7;
+}
+
+/* Licznik buraków */
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  font-family: "Upheavtt", sans-serif;
+  font-size: 12px;
+  color: #e6e65c;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+.counter-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.counter span#beetCount {
+  color: #e6e65c; /* żółty */
+}
+
+.counter-total {
+  color: #ffffff; /* biały */
+}
